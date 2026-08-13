@@ -14,7 +14,8 @@ index.html              the whole site, one page
 assets/css/site.css     layout and brand system
 assets/css/estimator.css  price estimator styles
 assets/js/estimator.js  price estimator, PRICING object lives at the top
-assets/js/site.js       video facade, booking form, config
+assets/js/site.js       lazy BookLive iframe loader, footer year
+assets/video/           Skinny Dennis promo clips and their posters
 assets/img/             photography, mostly by Heavy Glow
 CNAME                   custom domain for GitHub Pages
 ```
@@ -27,10 +28,15 @@ gets added per region, and accepts either a flat number or an object keyed by
 lineup when the cost scales with how many people travel. Nothing below the
 "machinery" comment needs touching.
 
-**Where the booking form goes.** `assets/js/site.js`, `FORM_ACCESS_KEY`. Get a
-free key at web3forms.com by entering the destination email address. Until that
-is set, the form falls back to opening the visitor's mail client addressed to
-`FALLBACK_EMAIL`.
+**The booking form.** It is the BookLive inquiry form (`pbr-music`), the same
+one embedded at patrickbray.com/book-patrick, so enquiries land in the booking
+pipeline Patrick already uses. The embed URL and its colour parameters live in
+`index.html`; BookLive's iframeResizer is loaded lazily from `site.js` once the
+form scrolls into view.
+
+Because it is a cross origin iframe, the estimator cannot prefill it. The
+estimator writes its summary into `#bookEstimate` above the form instead, so
+the visitor can paste it into the message box.
 
 **Copy.** All of it is in `index.html`, in plain sight.
 

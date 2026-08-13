@@ -86,21 +86,30 @@
 
 <!-- ============================ LISTEN ============================ -->
 <section id="listen">
-  <div class="wrap listen__grid">
-    <div>
+  <div class="wrap">
+    <div class="listen__intro">
       <p class="eyebrow">Hear it first</p>
       <h2 class="section-title">Country music that tells a story.</h2>
-      <p>Originals, the classics, and a good deal of country that never made it to the radio. Equally at home in a listening room as in a dingy honky tonk, which in practice means the same band can play a quiet ceremony at four and a packed dance floor at nine.</p>
-      <p>The set gets built around your event. Send me the songs that matter to you and the ones that absolutely should not get played, and I will work from there.</p>
+      <p class="section-lede">Originals, the classics, and a good deal of country that never made it to the radio. Equally at home in a listening room as in a dingy honky tonk, which in practice means the same band can play a quiet ceremony at four and a packed dance floor at nine.</p>
     </div>
-    <div class="video">
-      <button class="video__facade" data-video-id="yZJIwIWi9dg" aria-label="Play: Miles and Miles of Texas, live">
-        <img src="assets/img/duo.jpg" alt="" width="768" height="1151" loading="lazy">
-        <span class="video__play" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </span>
-        <span class="video__label">Miles and Miles of Texas · live</span>
-      </button>
+
+    <div class="clips">
+      <figure class="clip">
+        <video preload="none" playsinline controls poster="assets/video/memphis-poster.jpg" width="720" height="1280">
+          <source src="assets/video/memphis.mp4" type="video/mp4">
+        </video>
+        <figcaption><strong>Memphis</strong><span>An original</span></figcaption>
+      </figure>
+      <figure class="clip">
+        <video preload="none" playsinline controls poster="assets/video/killin-time-poster.jpg" width="720" height="1280">
+          <source src="assets/video/killin-time.mp4" type="video/mp4">
+        </video>
+        <figcaption><strong>Killin’ Time</strong><span>Clint Black</span></figcaption>
+      </figure>
+      <div class="clips__note">
+        <p>Both of these are the full band on the same night, one original and one cover, at a two step night in Brooklyn. Nothing is spliced in from another show. What you are hearing is what the room heard.</p>
+        <p>The set gets built around your event. Send me the songs that matter to you and the ones that absolutely should not get played, and I will work from there.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -328,7 +337,7 @@
 </section>
 
 <!-- ============================ BOOK ============================ -->
-<section id="book" class="section--dark">
+<section id="book">
   <div class="wrap book__grid">
 
     <div class="book__aside">
@@ -342,84 +351,21 @@
       </div>
     </div>
 
-    <form id="bookForm" novalidate>
-      <input class="hp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
-      <input type="hidden" name="estimate" value="">
+    <div class="book__form">
+      <!-- Estimator handoff. The BookLive form lives in a cross origin iframe,
+           so it cannot be prefilled from here. Surfacing the picks instead lets
+           the visitor paste them into the message box. -->
+      <p class="book__estimate" id="bookEstimate" hidden></p>
 
-      <div class="form-grid">
-        <div>
-          <label for="f-name">Your name</label>
-          <input id="f-name" name="name" type="text" autocomplete="name" required>
-        </div>
-        <div>
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" required>
-        </div>
-        <div>
-          <label for="f-phone">Phone (optional)</label>
-          <input id="f-phone" name="phone" type="tel" autocomplete="tel">
-        </div>
-        <div>
-          <label for="f-date">Event date</label>
-          <input id="f-date" name="event_date" type="date">
-        </div>
-        <div>
-          <label for="f-type">Occasion</label>
-          <select id="f-type" name="event_type">
-            <option value="">Choose one</option>
-            <option value="wedding">Wedding</option>
-            <option value="corporate">Corporate</option>
-            <option value="private">Private party</option>
-            <option value="other">Something else</option>
-          </select>
-        </div>
-        <div>
-          <label for="f-lineup">Lineup</label>
-          <select id="f-lineup" name="lineup">
-            <option value="">Not sure yet</option>
-            <option value="solo">Solo</option>
-            <option value="duo">Duo</option>
-            <option value="trio">Trio</option>
-            <option value="band">Full band</option>
-          </select>
-        </div>
-        <div>
-          <label for="f-hours">How long</label>
-          <select id="f-hours" name="hours">
-            <option value="">Not sure yet</option>
-            <option value="1">1 hour</option>
-            <option value="2">2 hours</option>
-            <option value="3">3 hours</option>
-            <option value="4">4 hours</option>
-            <option value="unsure">Still working it out</option>
-          </select>
-        </div>
-        <div>
-          <label for="f-area">Where</label>
-          <select id="f-area" name="area">
-            <option value="">Choose one</option>
-            <option value="metro">Houston</option>
-            <option value="near">Greater Houston</option>
-            <option value="central">Central Texas</option>
-            <option value="westtx">West Texas</option>
-            <option value="far">Somewhere else</option>
-          </select>
-        </div>
-        <div class="full">
-          <label for="f-venue">Venue or town</label>
-          <input id="f-venue" name="venue" type="text" placeholder="If you know it yet">
-        </div>
-        <div class="full">
-          <label for="f-message">Anything else</label>
-          <textarea id="f-message" name="message" placeholder="Timeline, songs that matter to you, how many guests, whatever is on your mind."></textarea>
-        </div>
-        <div class="full">
-          <button class="btn btn--primary" type="submit">Send it over</button>
-          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-          <p class="form-note">No mailing list, no automated follow up sequence. This goes to my inbox and nowhere else.</p>
-        </div>
-      </div>
-    </form>
+      <iframe
+        id="bookliveForm"
+        src="https://booklive.com/inquiry-forms/pbr-music?bg=transparent&amp;textColor=32382A&amp;btnColor=AB593F&amp;btnTextColor=FFFFFF&amp;btnBlock=1&amp;btnRadius=50"
+        title="Booking enquiry form"
+        loading="lazy"
+        scrolling="no"></iframe>
+
+      <p class="form-note">Goes straight into my booking system. No mailing list, no automated follow up sequence.</p>
+    </div>
 
   </div>
 </section>

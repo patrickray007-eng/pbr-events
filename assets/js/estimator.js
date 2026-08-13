@@ -134,18 +134,17 @@ function baseFor(eventId, configId, hourId){
   return {low: v, high: v};
 }
 
-/* Hand the current picks to the booking form further down the page,
-   so nobody has to answer the same four questions twice. */
+/* Carry the picks down to the booking section. The BookLive form is a cross
+   origin iframe, so its fields cannot be filled from here. Showing the summary
+   above it means the visitor can paste it into the message box, and it saves
+   them re-deciding what they already decided up the page. */
 function syncToForm(summaryText, figureText){
-  var f = document.getElementById("bookForm");
-  if(!f) return;
-  var map = {event:"event_type", config:"lineup", hours:"hours", travel:"area"};
-  Object.keys(map).forEach(function(k){
-    var field = f.elements[map[k]];
-    if(field && state[k]) field.value = state[k];
-  });
-  var est = f.elements["estimate"];
-  if(est) est.value = summaryText + (figureText ? " | " + figureText : "");
+  var out = document.getElementById("bookEstimate");
+  if(!out) return;
+  out.innerHTML = "You picked <strong>" + summaryText + "</strong>"
+    + (figureText ? ", roughly <strong>" + figureText + "</strong>" : "")
+    + ". Worth dropping in the message box below.";
+  out.hidden = false;
 }
 
 function render(){
