@@ -1,1 +1,6 @@
 .DS_Store
+
+# CNAME is added only once the events.patrickbray.com DNS record exists.
+# Committing it early makes GitHub redirect the preview URL to a domain
+# that does not resolve yet.
+CNAME
