@@ -206,7 +206,7 @@ section{padding:5rem 0;}
 
 /* The landscape house-concert cut leads: proper audio, and it is the only
    piece here where he is clearly visible and audible on his own. */
-.feature-clip{margin:0 0 1.5rem;max-width:860px;}
+.feature-clip{margin:2.75rem 0 1.5rem;max-width:860px;}
 .feature-clip video{
   width:100%;
   height:auto;
@@ -234,7 +234,7 @@ section{padding:5rem 0;}
   opacity:.6;
 }
 .feature-clip__note{
-  margin:0 0 2.75rem;
+  margin:0;
   max-width:64ch;
   line-height:1.65;
   opacity:.85;
@@ -316,7 +316,7 @@ section{padding:5rem 0;}
 }
 .lineup__body{margin:0 0 1rem;line-height:1.65;}
 .lineup__gear{
-  margin:0 0 1.25rem;
+  margin:0;
   font-size:.88rem;
   opacity:.7;
   font-style:italic;
