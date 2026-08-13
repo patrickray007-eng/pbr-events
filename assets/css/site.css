@@ -204,20 +204,16 @@ section{padding:5rem 0;}
 
 .listen__intro{margin-bottom:2.75rem;}
 
-/* Two vertical phone clips plus a column of copy. The clips are capped so a
+/* Two vertical phone clips side by side, caption underneath. Capped so a
    9:16 video does not run the full height of a desktop screen. */
 .clips{
   display:grid;
-  grid-template-columns:minmax(0,240px) minmax(0,240px) minmax(0,1fr);
-  gap:1.5rem 2.5rem;
+  grid-template-columns:repeat(2,minmax(0,280px));
+  gap:1.5rem;
   align-items:start;
 }
-@media (max-width:900px){
-  .clips{grid-template-columns:1fr 1fr;}
-  .clips__note{grid-column:1 / -1;}
-}
 @media (max-width:520px){
-  .clips{grid-template-columns:1fr;max-width:340px;margin:0 auto;}
+  .clips{grid-template-columns:1fr;max-width:340px;}
 }
 
 .clip{margin:0;}
@@ -251,9 +247,11 @@ section{padding:5rem 0;}
   opacity:.6;
 }
 
-.clips__note p{margin:0 0 1rem;line-height:1.65;}
-.clips__note p:last-child{margin-bottom:0;}
-@media (min-width:901px){.clips__note{padding-top:.25rem;}}
+.clips__note{
+  margin:1.75rem 0 0;
+  max-width:64ch;
+  line-height:1.65;
+}
 
 /* ---------- lineups ---------- */
 
