@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /roster/
 
 Sitemap: https://events.patrickbray.com/sitemap.xml

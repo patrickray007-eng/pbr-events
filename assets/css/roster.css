@@ -1,0 +1,176 @@
+/* ============================================================
+   ROSTER PAGE ADDITIONS
+   events.patrickbray.com/roster/
+
+   Loaded on top of site.css, which owns the palette, the type and
+   every shared component. Nothing here redefines a site.css rule.
+   These are the pieces the consumer page never needed: rate tables,
+   two column logistics, and light on dark type variants.
+   ============================================================ */
+
+/* ---------- utility ---------- */
+
+.sr-only{
+  position:absolute;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+.eyebrow--light{opacity:.85;color:var(--paper);}
+.section-lede--light{opacity:.8;}
+
+.sub-title{
+  font-size:1.15rem;
+  margin:2.75rem 0 1rem;
+  letter-spacing:.02em;
+}
+
+.fine{
+  font-size:.88rem;
+  line-height:1.6;
+  opacity:.72;
+  margin:1rem 0 0;
+}
+
+/* ---------- rate tables ---------- */
+
+.rate-table{
+  width:100%;
+  border-collapse:collapse;
+  margin:0 0 .5rem;
+  font-size:1rem;
+}
+.rate-table caption{text-align:left;}
+.rate-table thead th{
+  font-family:var(--sans);
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  opacity:.55;
+  text-align:left;
+  padding:0 0 .7rem;
+  border-bottom:1px solid var(--line);
+}
+.rate-table thead th:last-child{text-align:right;}
+.rate-table tbody th{
+  font-family:var(--sans);
+  font-weight:700;
+  text-align:left;
+  padding:1rem 1.5rem 1rem 0;
+  border-bottom:1px solid var(--line-soft);
+  vertical-align:top;
+}
+.rate-table tbody th span{
+  display:block;
+  font-weight:400;
+  font-size:.9rem;
+  opacity:.7;
+  margin-top:.15rem;
+}
+.rate-table tbody td{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:1.25rem;
+  color:var(--rust);
+  text-align:right;
+  white-space:nowrap;
+  padding:1rem 0;
+  border-bottom:1px solid var(--line-soft);
+  vertical-align:top;
+}
+.rate-table--adj tbody td{
+  font-family:var(--sans);
+  font-size:.95rem;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.45;
+  white-space:normal;
+}
+.rate-table--adj tbody th{font-weight:400;}
+
+.rate-note{
+  margin:1.5rem 0 0;
+  padding:.9rem 1.1rem;
+  background:rgba(171,89,63,.09);
+  border-left:3px solid var(--rust);
+  font-size:.95rem;
+  line-height:1.55;
+}
+
+@media (max-width:520px){
+  .rate-table tbody th{padding-right:1rem;}
+  .rate-table tbody td{font-size:1.1rem;}
+}
+
+/* ---------- two column blocks ---------- */
+
+.cols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2.5rem 3.5rem;
+}
+@media (max-width:760px){.cols{grid-template-columns:1fr;gap:2.25rem;}}
+
+.cols .sub-title:first-child{margin-top:0;}
+
+.plain-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.plain-list li{
+  position:relative;
+  padding:0 0 .7rem 1.15rem;
+  line-height:1.55;
+  font-size:.98rem;
+}
+.plain-list li::before{
+  content:"";
+  position:absolute;
+  left:0;top:.62em;
+  width:5px;height:5px;
+  background:var(--rust);
+  border-radius:50%;
+}
+
+/* The hero eyebrow needs to beat `.hero p` on specificity, which sets the
+   lede size and margin for anything in the hero. */
+.hero .eyebrow{
+  font-size:.72rem;
+  line-height:1.4;
+  margin:0 0 .9rem;
+  max-width:none;
+  color:rgba(255,255,255,.9);
+  text-shadow:0 1px 14px rgba(0,0,0,.45);
+}
+
+/* Logistics has no lede between the title and the two columns, so the
+   breathing room the lede would have supplied is added back here. */
+#logistics .section-title{margin-bottom:2.75rem;}
+
+/* On a phone the adjustments table has no room for two columns, so each row
+   stacks: the item, then its rate underneath. Ragged right aligned wrapping
+   like "$350 solo, duo, / trio" is worse than a stacked pair. */
+@media (max-width:560px){
+  .rate-table--adj,
+  .rate-table--adj tbody,
+  .rate-table--adj tbody tr{display:block;width:100%;}
+  .rate-table--adj thead{display:none;}
+  .rate-table--adj tbody tr{
+    padding:.9rem 0;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .rate-table--adj tbody th,
+  .rate-table--adj tbody td{
+    display:block;
+    padding:0;
+    border:0;
+    text-align:left;
+  }
+  .rate-table--adj tbody td{margin-top:.3rem;color:var(--rust);}
+}
