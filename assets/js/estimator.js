@@ -8,6 +8,20 @@
    'standard' table today. To price weddings differently later,
    copy the table, rename it, change the numbers, and point
    eventTypes.wedding.table at the new name. Nothing else changes.
+
+   THIS IS THE CONSUMER LADDER, AND IT IS THE ONLY ONE PUBLISHED.
+   It is for people booking their own event directly.
+
+   Corporate, agency and talent-buyer work is priced from
+   price-sheet-client-v5.md in the knowledge base, which is a
+   DIFFERENT and higher ladder, quoted per event and never
+   published. That sheet is benchmarked against agency floors
+   (Gulf Coast, Avalon) because an agency marks up on top of the
+   artist fee. Do not reconcile these two tables. They serve
+   different buyers on purpose.
+
+   Trade buyers sometimes arrive through the consumer form. When
+   they do, quote them from v5, not from what this page showed.
    ============================================================ */
 var PRICING = {
 
@@ -30,7 +44,7 @@ var PRICING = {
     {id:"solo", label:"Solo",      note:"Just me and a guitar"},
     {id:"duo",  label:"Duo",       note:"Plus upright bass, fiddle or steel"},
     {id:"trio", label:"Trio",      note:"Dancing, still intimate"},
-    {id:"band", label:"Full band", note:"Four piece"}
+    {id:"band", label:"Full band", note:"Four to six pieces"}
   ],
 
   hours: [
@@ -44,12 +58,22 @@ var PRICING = {
   /* travel.add accepts either a flat number, or an object keyed by
      configuration when the cost scales with how many people travel.
      null means "don't show a number, route to the form". */
+  /* Only publish a travel number where the whole band can get there
+     and home the same night. Anything that needs mileage for several
+     vehicles or a hotel room is null, which routes to the form and
+     gets quoted with travel and lodging inside it.
+
+     A flat adder cannot carry a five piece to Austin. Mileage alone
+     runs several hundred dollars before a single room, so Central
+     Texas is quoted rather than published. West Texas stays free for
+     solo and duo because that is home base; a trio or band still has
+     to move other players out there, so those are quoted too. */
   travel: [
     {id:"metro",   label:"Houston",         note:"The loop and inner metro",   add:0},
     {id:"near",    label:"Greater Houston", note:"Katy, Woodlands, Galveston", add:50},
-    {id:"central", label:"Central Texas",   note:"Austin, San Antonio",        add:200},
+    {id:"central", label:"Central Texas",   note:"Austin, San Antonio",        add:null},
     {id:"westtx",  label:"West Texas",      note:"Marfa, Alpine, Fort Davis",
-                   add:{solo:0, duo:0, trio:150, band:350}, homeBase:true},
+                   add:{solo:0, duo:0, trio:null, band:null}, homeBase:true},
     {id:"far",     label:"Somewhere else",  note:"Out of state or far",        add:null}
   ],
 
