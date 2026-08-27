@@ -204,8 +204,8 @@ section{padding:5rem 0;}
 
 .listen__intro{margin-bottom:2.75rem;}
 
-/* The landscape house-concert cut leads: proper audio, and it is the only
-   piece here where he is clearly visible and audible on his own. */
+/* Landscape 16:9 videos: the montage that leads the section and the
+   house-concert cut that closes it. */
 .feature-clip{margin:2.75rem 0 1.5rem;max-width:860px;}
 .feature-clip video{
   width:100%;
