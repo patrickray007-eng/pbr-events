@@ -134,7 +134,7 @@ section{padding:5rem 0;}
   display:flex;align-items:center;gap:1.25rem;
   min-height:4.5rem;
 }
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--olive);margin-right:auto;}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--olive);margin-right:auto;min-height:2.75rem;}
 .brand img{width:30px;height:auto;}
 .brand__text{display:flex;flex-direction:column;line-height:1.05;}
 .brand__name{font-family:var(--serif);font-weight:700;font-size:1rem;}
@@ -148,9 +148,38 @@ section{padding:5rem 0;}
 }
 .site-nav a:hover{opacity:1;color:var(--rust);}
 .site-nav .btn{font-size:.7rem;padding:.7rem 1.4rem;opacity:1;color:#fff;}
+/* The header CTA is the only tap target up there, so give it the full
+   44px rather than the 41px the padding alone worked out to. */
+.site-nav .btn{display:inline-flex;align-items:center;min-height:2.75rem;}
 
 @media (max-width:860px){
   .site-nav a:not(.btn){display:none;}
+}
+
+/* Below this the brand and the header CTA are the only things left, and
+   both were wrapping onto a second line. Keep each on one line and let
+   the type tighten instead. */
+@media (max-width:560px){
+  .site-header__inner{gap:.75rem;}
+  .brand{gap:.5rem;}
+  .brand img{width:26px;}
+  .brand__name{white-space:nowrap;}
+  .brand__sub{white-space:nowrap;letter-spacing:.16em;}
+  .site-nav .btn{
+    white-space:nowrap;
+    font-size:.64rem;
+    letter-spacing:.1em;
+    padding:.7rem 1rem;
+  }
+}
+
+/* At the narrow end the brand still wanted more width than the row could
+   give it and spilled over the CTA. Tighten the lockup instead. */
+@media (max-width:400px){
+  .brand img{width:23px;}
+  .brand__name{font-size:.85rem;}
+  .brand__sub{font-size:.5rem;letter-spacing:.05em;}
+  .site-nav .btn{font-size:.58rem;padding:.65rem .7rem;}
 }
 
 /* ---------- hero ---------- */
@@ -239,6 +268,13 @@ section{padding:5rem 0;}
   line-height:1.65;
   opacity:.85;
 }
+
+/* The montage figure is followed straight by the clip pair, with no
+   paragraph between them, so the gap is set here rather than inherited
+   from whatever happens to sit in between. 2.75rem is the same block
+   rhythm .feature-clip uses above, and it beats the figure's 1.5rem
+   bottom margin, so the spacing is the value set here either way. */
+.feature-clip + .clips{margin-top:2.75rem;}
 
 /* Two vertical phone clips side by side, caption underneath. Capped so a
    9:16 video does not run the full height of a desktop screen. */

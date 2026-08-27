@@ -61,6 +61,12 @@
 
 .pbr-est__opt{
   min-width:0;
+  /* Single-line options came out at 40px tall, under the 44px touch
+     minimum. Center the label in a 44px box so the short ones match. */
+  min-height:2.75rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
   cursor:pointer;
   border:1px solid var(--line);
   border-radius:2px;
